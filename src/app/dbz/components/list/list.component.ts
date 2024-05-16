@@ -30,6 +30,8 @@ export class ListComponent {
   }
 
   onEditCharacter( character : Character){
+    console.log(character);
+
     this.onEdit.emit( character );
   }
 

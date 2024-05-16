@@ -31,10 +31,10 @@ export class DbzService {
 
   addCharacter( character: Character ):void {
 
-    const newCharacter: Character = { id: uuid(), ...character };
 
 
     const charactersSaved: Character[] =  this.characters.filter( sav => sav.id === character.id );
+    const newCharacter: Character = { id: uuid(), ...character };
     if(charactersSaved.length === 0 ){
       this.characters.push(newCharacter);
     }
@@ -53,9 +53,8 @@ export class DbzService {
     let chEdit = null;
 
     this.characters.forEach(ch => {
-      if(ch.id === character.id)  this.characterEdited =  ch;
+      if(ch.id === character.id)  this.characterEdited = { ...ch};
     });
-
 
   }
 
